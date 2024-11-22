@@ -1,0 +1,53 @@
+# Cluster parameters
+controlPlaneNumber: 1
+workersNumber: 1
+
+clusterNetwork:
+  pods:
+    cidrBlocks:
+      - "192.168.100.0/24"
+  services:
+    cidrBlocks:
+      - "192.168.101.0/24"
+
+# OpenStack cluster parameters
+openstack:
+  nameservers:
+    - 8.8.8.8
+  cloudName: ""
+  externalNetId: ""
+  enableApiLb: false
+  createSecurityGroups: true
+  createNetworkInfra: true
+clusterIdentity:
+  name: ""
+
+sshKeyName: ""
+publicIP: false
+bastion:
+  enabled: false
+  spec:
+    image:
+      filter:
+        name: ""
+    flavor: ""
+    sshKeyName: ""
+
+controlPlane:
+  flavor: ""
+  image: ""
+
+worker:
+  flavor: ""
+  image: ""
+
+# K0s parameters
+k0s:
+  version: v1.31.1+k0s.1
+
+# extensions defines custom Helm and image repositories to use for pulling
+# k0s extensions.
+extensions:
+  chartRepository: ""
+  imageRepository: ""
+
